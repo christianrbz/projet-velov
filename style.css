@@ -1,0 +1,545 @@
+html {
+	padding: 0;
+	margin: 0;
+}
+
+
+/* BODY */
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFF;  /* Fond couleur blanc */
+	font-family: sans-serif;
+	width: 100%;
+}
+
+
+/*----- Proprietes generales ----- */
+
+
+header {
+	display: flex; /* aligne le contenu de la section horizontalement */
+	justify-content: center;
+}
+
+
+ul {
+	list-style-type: none; /* supprime les puces */
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+img { 
+	max-width: 100%;
+}
+
+
+
+/* ---- HEADER : Logo et menu de navigation ---- */
+
+
+#entete {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;    
+	height: 70px; /* Hauteur de l'entete */
+	background-color: #FFF;
+	display: flex; 
+	justify-content: space-around; /* met une espace de chaque cote */
+	align-items: center;  /* centre les elements verticalement */
+ 	z-index: 999;  /*menu reste dans le contenu*/
+}
+
+#entete img {
+	height: 74px;
+}
+
+/* Icone du menu Burger en tablette et mobile */
+#entete i {
+	display: none;
+	font-size: 1.5em;
+}
+
+#inputBurger {
+	display: none;
+	}
+
+/* ---- Navigation de l'entete ---- */
+
+
+nav ul {
+    display: flex;
+}
+
+nav li a {
+	padding: 20px; /* Marge des liens */
+	color: black;  
+}
+
+
+nav ul li a:hover {  
+	border-top: 2px solid  red;  /* couleur rouge */
+}
+
+h1 {
+	margin-top: 70px;
+	text-align: center;
+	font-size: 28px;
+	font-weight: bolder;
+	margin-bottom: 0px;
+}
+
+/* ---- SLIDER ---- */
+
+.container
+{
+	width: 80%;
+	margin: 10px auto;
+}
+
+
+.slide 
+{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 	width: 0px;
+ 	height: 0px;
+ 	opacity: 0;
+ 	position: relative;
+ 	margin: 0;
+}
+
+ .slide img {
+	    	width: 100%;
+	    }
+
+.actif
+{
+	width: 100%;
+	height: 100%;
+	margin:auto;
+	opacity: 1;
+    transition: opacity 0.6s ease-in;
+  }
+
+.texte 
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.texte h2
+{
+	margin: 5px auto 0;
+}
+
+.texte p {
+	margin: 5px auto;
+}
+
+
+.slide img {
+	width: 100%;
+	height: 380px;
+    border-radius: 5px 5px 0 0;
+}
+
+#prev, #next
+{
+	background-color: rgba(0,0,0, 0.5);
+    border: 0;
+    color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;  
+    cursor: pointer; 
+}
+
+
+#prev:hover, #next:hover 
+{
+    background-color: #d00a0a;
+}
+
+
+
+#prev 
+{
+    position: absolute;   /* la position relative est la page entiere */
+    top: 300px;
+    left: 5%; 
+}
+
+#next 
+{
+    position: absolute;
+    top: 300px;
+    right: 5%;
+    
+}
+
+
+#pause {
+	position: absolute;
+	top: 360px;
+	right: 5%;
+	background-color: rgba(0,0,0, 0);
+    border: 0;
+    color: red; 
+    cursor: pointer; 
+    font-size: 1em;
+    font-weight: bolder;
+    border: 1px solid red;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px; 
+}
+
+
+
+#slideButton button:hover
+{
+	background-color: rgb(195, 195, 195);
+}
+
+/*barre de chargement rouge*/
+.run-animation span {
+  position: absolute;
+  bottom: 0px;
+  left: 0; 
+  height: 5px;
+  background: red;
+  width: 100%;
+}
+
+/* fonction d'animation */
+.run-animation span { 
+	animation: timeliner 5s; 
+}
+@keyframes timeliner {
+  0%    { width: 0; }
+  100%  { width: 100%; }
+}
+
+
+/* ----- PARTIE LES STATIONS ----- */
+
+
+/*Titre de la partie "Les Stations"*/
+#partieStations {
+	text-align: center;
+	padding-top: 80px;
+	font-size: 24px;
+	font-weight: bolder;
+}
+
+#map {
+	height: 400px;
+	width: 900px;
+	border: 1px solid black;
+	margin: 10px 20px;
+	position: relative;
+}
+
+
+/*Map, Informations sur Stations et reservation*/
+#stations {
+	padding-top: 50px;
+	position: relative;
+	display: flex;
+	padding-top: 0;
+}
+ 
+/*Titre "Détails de la station"*/
+h4 {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 22px;
+    color: green;
+}
+
+/*Titre informations sur la station*/
+h5{
+    line-height: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 16px;
+    color: darkslategray;
+    font-weight: bold;
+ }
+
+/*Les informations qui s'affiche au clic d'une station sur la map*/
+#infoStations p {
+	margin: 10px 0;
+
+}
+
+/*Consigne qui change selon le clic d'une station*/
+#status {
+	margin-top: 15px;
+	color: orangered;
+	font-weight: bold;
+}
+
+
+/*Bouton reservation*/
+#reservationButton {
+	visibility: hidden;   /*Le bouton s'affichera quand on aura une station ouverte*/
+	margin: auto;
+    background-color: dimgray;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    font-size:1em;
+    font-weight: bold; 
+    text-decoration: none;
+    padding:3px 20px;
+    height: 32px;
+    margin-bottom: 10px;
+    margin:auto;
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+#reservationButton:hover{
+     background-color: limegreen;
+}
+
+#formulaire {
+	visibility: hidden; /*Le formulaire s'affichera quand on cliquera sur le bouton "réserver"*/
+	position: absolute;
+	top: 10%;
+	left: 35%;
+	z-index: 500;
+	background-color: white;
+	padding: 20px 20px;
+}
+
+#signatureClient{   /* Espace pour la signature */
+	height: 150px;
+	width: 300px;
+	border: 1px solid lightgrey;
+}
+
+/* ----- PARTIE RESERVATION ----- */
+#reservationTitle {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bolder;
+	margin: 20px 0;
+}
+
+#reservationTitle h3 {
+	margin: 0;
+}
+
+#reservation {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#reservationTimer {
+	color: orangered;
+	font-weight: bold;
+	font-size: 1.4em;
+}
+
+
+#cancelReservation {
+    visibility: hidden;
+    margin: 10px 0;
+    cursor: pointer;
+	margin: auto;
+    background-color: dimgray;
+    border:none;
+    color: white;
+    border-radius: 5px;
+    font-size:1em;
+    font-weight: bold; 
+    padding:3px 20px;
+    height: 32px;
+    margin-bottom: 25px;
+    margin-top: 22px;
+}
+
+
+#cancelReservation:hover {
+	background-color: red;
+}
+
+/*---- FOOTER ----*/
+
+footer {
+	height: 80px;
+	border-top: 0.3px solid grey;
+	text-align: center;
+	margin: 0;
+	padding: 10px 15px;
+	background-color: lightgrey;
+}
+
+footer p {
+	font-style: italic;
+	font-size: 0.9em;
+	vertical-align: middle; 
+	margin: 0;
+	margin: 15px 0 10px 0;
+}
+	
+	/* ------ Responsive large desktops ------ */
+	@media screen and (min-width: 1600px) {
+
+		#formulaire {
+			left: 28%;
+		}
+	}
+
+	/* ------ Responsive tablette ------ */
+	@media screen and (max-width: 768px) {
+
+		#infoStations {
+			padding-right: 15px;
+		}
+
+		#prev {
+		    top: 300px;
+		    left: 3%; 
+		}
+
+		#next {
+		    top: 300px;
+		    right: 3%;
+		}
+
+
+		#pause {
+			top: 360px;
+			right: 3%;
+		}
+
+		#formulaire {
+			left: 25%;
+		}
+	}
+
+	/* ------ Responsive mobile ------ */
+
+	@media screen and (max-width: 576px) { 
+
+		h1 {
+			font-size: 25px;
+		}
+
+		#entete i {
+		display: block;
+		color: red;
+		}
+
+		#burger {
+			display: block;
+		}
+
+		#inputBurger:checked ~ nav {
+			display: block;
+			position: absolute;
+			bottom: -90px;
+			background-color: red;
+			color: white;
+			width: 100%;
+		}
+
+		/* Configuration de la nouvelle nav du menu Burger */
+
+		nav ul {
+			flex-direction: column;
+			text-align: center;
+			padding-left: 0;
+			margin: 0;
+		}
+
+
+		nav li {
+			padding: 5px 0;
+			border-top: 1px solid grey;
+		}
+
+		.container {
+			width: 90%;
+		}
+
+
+		nav li a {
+			color: white;
+		}
+
+		nav {
+			display: none;
+		}
+
+
+		#infoStations {
+			padding-left: 0;
+		}
+
+		.texte {
+	    	font-size: 0.9em;
+	    }
+
+		 .slide img {
+	    	width: 100%;
+	    	max-height: 200px;
+	    }
+
+		#prev {
+		    top: 420px;
+		    left: 30%; 
+		}
+
+		#next {
+		    top: 420px;
+		    right: 30%;
+		}
+
+
+		#pause {
+			top: 420px;
+			right: 45%;
+			font-size: 0.9em;
+		}
+
+		#stations {
+			display: block;
+			width: 100%;
+			margin: auto;
+		}
+
+		#map {
+			margin: 0px 0px;
+			width: 100%;
+		}
+
+		#infoStations {
+			text-align: center;
+		}
+
+		#formulaire {
+			top: 53%;
+			left: 7%;
+		}
+
+		#reservationTimer {
+			font-size: 1.2em;
+			padding: 0 15px;
+		}
+	}
