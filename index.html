@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Pour le responsive -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Titre de l'onglet -->
+		<title>Vélo'V</title>
+
+		<!-- image dans l'onglet -->
+		<link rel="shortcut icon" href="images/velov.png"/>
+
+		<!-- Référencement -->
+		<meta name="author" content="Christian Rbz"/>
+		<meta name="description" content="Location de vélo en libre service">
+		<meta name="keywords" content="vélo, location, Lyon, velov, velib, réservation, station"/>
+
+		<!-- Fichier css qui renvoie à leaflet -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   		crossorigin=""/>
+
+   		<!--Fichier css qui renvoie aux markercluster de leaflet-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
+		<!-- Feuille de style -->
+		<link rel="stylesheet" href="style.css">
+		<!-- liens pour fontawesome pour afficher les icônes -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+	</head>
+
+
+<body>
+	<!-- Header -->
+	<header id="header">
+		<div id="entete">
+			<!-- Logo -->	
+			<a href="#"><img src="images/logo_velov.png" alt="Velov"></a>	
+			<!-- Menu Burger pour mobile et tablette -->
+			<input type="checkbox" id="inputBurger">
+			<label for="inputBurger" id="burger">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</label>
+
+			<!-- Navigation Entete -->
+			<nav>
+				<ul>
+					<li><a href="#">Accueil</a></li>
+					<li><a href="#partieStations">Les stations</a></li>
+					<li><a href="#reservationTitle">Ma Reservation</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<h1> Vélo'v : Location de vélib à Lyon </h1>
+
+	<!-- SECTION 1 : LE SLIDER -->
+	
+	<div class="container">
+			<div id="slider">
+				<div class="slides">
+					<div class="slide actif">
+						<img src="images/velov1.jpg" alt="images de présentation 1">
+						<div class="texte">
+							<h2>Etape 1</h2>
+							<p>Cliquez sur la station que vous voulez</p>
+						</div>
+						<span class="run-animation"></span>							
+					</div>
+
+					<div class="slide">
+						<img src="images/velov2.jpg" alt="images de présentation 2">
+						<div class="texte">
+							<h2>Etape 2</h2>
+							<p>Cliquez sur le bouton "Réserver"</p>
+						</div>
+						<span class="timeline"></span>
+					</div>
+
+					<div class="slide">
+						<img src="images/velov3.jpg" alt="images de présentation 3">
+						<div class="texte">
+							<h2>Etape 3</h2>
+							<p>Remplissez le formulaire et signez dans le cadre réservé</p>
+						</div>
+						<span class="timeline"></span>
+					</div>
+
+					<div class="slide">
+						<img src="images/velov4.jpg" alt="images de présentation 4">
+						<div class="texte">
+							<h2>Etape 4</h2>
+							<p>Allez chercher votre vélo et roulez !</p>
+						</div>
+						<span class="timeline"></span>
+					</div>
+
+				</div>  <!-- fin de la class "slides" -->
+
+				<div id="slideButton">
+					<button id="next"><i class="fa fa-chevron-right"></i></button>
+					<button id="prev"><i class="fa fa-chevron-left"></i></button>
+					<button id="pause"></button>
+				</div>
+			</div> <!-- fin de la div "slider" -->
+	</div> <!-- fin de la div container --> 
+
+				
+	<h3 id="partieStations">Choisissez un vélo dans une station</h3>
+
+	<div id="stations"> 
+		<div id="map"></div> 	
+
+	    <div id ="infoStations">
+	        
+	        <h4>Détails de la station</h4>
+
+	        <h5>Nom de la station</h5>
+	        <p id="nameStation"> </p>
+
+	        <h5>Adresse</h5>
+	        <p id="address_stations"></p>  
+
+	        <h5 class="infosVelos">Nombre d'emplacements</h5>
+	        <p id="bikeStands"></p>
+
+	        <h5 class="infosVelos">Vélos disponibles</h5>
+	        <p id="availableBikes"> </p>
+
+	        <div id="status">
+                <p>Sélectionnez une station pour effectuer une reservation</p>
+            </div>
+	        
+	        <button type="button" id="reservationButton">Réserver</button>
+	       
+		    </div>
+
+
+	    <div id="formulaire">
+	        <form id="form" method="post" action="index.html">
+
+	        	<label for="firstname">Prénom</label> <br>
+	           		<input id="firstname" type="text" name="prenom"/> <br>
+	           	<label for="name">Nom</label> <br>
+	            	<input id="name" type="text" name="nom"/> <br>
+	          	  
+	           	<label >Signature</label>    <br>
+		 			<canvas id="signatureClient"></canvas> <br>
+	        </form>
+
+            <button id="submitButton">Valider</button>
+            <button id="cancelButton">Annuler</button>
+            <button id="clear">Effacer</button>
+        </div>
+
+    </div> <!-- fin div stations -->
+
+
+	<div id="reservationTitle">
+		<h3>Ma réservation</h3>
+	</div>
+
+
+   <div id="reservation">
+        <div id="reservationTimer">
+            <p>Vous n'avez aucune réservation en cours.</p>
+        </div>
+        <button id="cancelReservation">Annuler la réservation</button>                       
+    </div>
+
+    <footer>
+    	<p> Attention ce site de location de Vélib à Lyon est un site fictif dans le cadre d’une formation d'OpenClassrooms pour la formation de développeur web junior. </p>
+    	<p> 
+   	</footer>
+
+
+<!-- lien de leaflet pour afficher la carte de Lyon avec Mapbox -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+
+<script src="js/slider.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/map.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
