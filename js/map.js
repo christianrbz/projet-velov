@@ -8,10 +8,10 @@ class Map {
 
         this.map = L.map(this.html).setView([x, y], 12);
         /* utilisation de Leaflet pour afficher la carte */
-        this.tileLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creative commons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery ©',
+        this.tileLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                            attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
                             maxZoom: maxZoom,
-                            id: 'mapbox.streets',
+                            id: 'mapbox/streets-v11',
                             accessToken: 'pk.eyJ1Ijoic2d1aWwiLCJhIjoiY2szZ3l2am1xMDR6MTNlcGhhaXY0c2tmbiJ9.7JfSl1SUoy3A8mkAhQ3eGg'
                         }).addTo(this.map);  
     }
