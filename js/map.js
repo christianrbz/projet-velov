@@ -52,26 +52,26 @@ class Map {
 
                 /*Au click sur un marker d'une station les informations s'afficheront sur le cadre d'informations des stations*/
                 marker.addEventListener ('click', function(e) {
-                    document.getElementById('infoStations')
-                    document.getElementById('nameStation').innerHTML = name;
-                    document.getElementById('address_stations').innerHTML = address;
-                    document.getElementById('bikeStands').innerHTML = bikeStands;
-                    document.getElementById('availableBikes').innerHTML = availableBikes;    
+                    document.querySelector('#infoStations')
+                    document.querySelector('#nameStation').innerHTML = name;
+                    document.querySelector('#address_stations').innerHTML = address;
+                    document.querySelector('#bikeStands').innerHTML = bikeStands;
+                    document.querySelector('#availableBikes').innerHTML = availableBikes;    
                     
                 /*Affichage sous conditions des informations sur le statut de la réservation et le bouton de réservation*/
                 if (status === 'CLOSED') {
-                    document.getElementById('status').innerHTML = "La station est fermée.<br> Rapprochez-vous d'une autre station.";
-                    document.getElementById('reservationButton').style.visibility = 'hidden';
-                    document.getElementById('formulaire').style.visibility = 'hidden';
+                    document.querySelector('#status').innerHTML = "La station est fermée.<br> Rapprochez-vous d'une autre station.";
+                    document.querySelector('#reservationButton').style.visibility = 'hidden';
+                    document.querySelector('#formulaire').style.visibility = 'hidden';
 
                 } if (availableBikes === 0) {
-                    document.getElementById('status').innerHTML = "Il n'y a pas de vélos disponibles.<br> Rapprochez-vous d'une autre station.";
-                    document.getElementById('reservationButton').style.visibility = 'hidden';
-                    document.getElementById('formulaire').style.visibility = 'hidden';
+                    document.querySelector('#status').innerHTML = "Il n'y a pas de vélos disponibles.<br> Rapprochez-vous d'une autre station.";
+                    document.querySelector('#reservationButton').style.visibility = 'hidden';
+                    document.querySelector('#formulaire').style.visibility = 'hidden';
                 } else if (status === 'OPEN' & availableBikes > 0) {
-                    document.getElementById('status').innerHTML = "Des vélos sont disponibles.<br> Réservez dès maintenant.";
-                    document.getElementById('reservationButton').style.visibility = 'visible';
-                    document.getElementById('formulaire').style.visibility = 'hidden';
+                    document.querySelector('#status').innerHTML = "Des vélos sont disponibles.<br> Réservez dès maintenant.";
+                    document.querySelector('#reservationButton').style.visibility = 'visible';
+                    document.querySelector('#formulaire').style.visibility = 'hidden';
                 };
 
                 }); /*fin de marker*/

@@ -1,6 +1,6 @@
 class Timer {
     constructor () {
-        this.id = document.getElementById('reservationTimer');
+        this.id = document.querySelector('#reservationTimer');
 
         /* temps du timer */
         this.interval = 0;
@@ -32,7 +32,7 @@ class Timer {
         this.interval = setInterval(e => this.countDown(), 1000);
 
         /* On affiche le bouton annuler la reservation */
-        document.getElementById('cancelReservation').style.visibility = 'visible';
+        document.querySelector('#cancelReservation').style.visibility = 'visible';
     }
 
 
@@ -43,7 +43,7 @@ class Timer {
         sessionStorage.removeItem(this.id+'endTime');
 
         /*Le bouton annuler la reservation disparait */
-        document.getElementById('cancelReservation').style.visibility = 'hidden';
+        document.querySelector('#cancelReservation').style.visibility = 'hidden';
         
     }
 
@@ -54,7 +54,7 @@ class Timer {
         this.id.innerHTML = 'Le temps est écoulé. Votre réservation est annulée. Veuillez faire une nouvelle réservation';
 
         /* le bouton annuler la reservation disparait */
-        document.getElementById('cancelReservation').style.visibility = 'hidden';
+        document.querySelector('#cancelReservation').style.visibility = 'hidden';
     }
 
 

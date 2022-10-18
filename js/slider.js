@@ -1,9 +1,9 @@
 class Slider {
     constructor () {
         this.keyboard = true;
-        this.pauseButton = document.getElementById('pause');
-        this.nextButton = document.getElementById('next');
-        this.prevButton = document.getElementById('prev');
+        this.pauseButton = document.querySelector('#pause');
+        this.nextButton = document.querySelector('#next');
+        this.prevButton = document.querySelector('#prev');
         this.slides = document.querySelectorAll('.slide');
         this.slideInterval = null;
         this.playing = true;

@@ -1,6 +1,6 @@
 class Signature {
     constructor () { 
-        this.html = document.getElementById('signatureClient');  /* id du canvas, zone ou le client signe */
+        this.html = document.querySelector('#signatureClient');  /* id du canvas, zone ou le client signe */
         this.radius = 2;  /* taille du rayon du tracé de la signature */
 
         this.context = this.html.getContext('2d');  /* 2d signifie deux dimensions */
@@ -72,8 +72,8 @@ class Signature {
         this.context.clearRect(0, 0, this.html.width, this.html.height);
         this.checkSign = false;
         /*Les boutons effacer et valider disparaisse car la signature est effacée */
-        document.getElementById('clear').style.visibility = 'hidden';
-        document.getElementById('submitButton').style.visibility = 'hidden';
+        document.querySelector('#clear').style.visibility = 'hidden';
+        document.querySelector('#submitButton').style.visibility = 'hidden';
     }
 
       /* Arret du tracé de la signature */
@@ -82,8 +82,8 @@ class Signature {
         this.context.beginPath();
         this.checkSign = true;
         /*Des qu'on commence à signer, les boutons effacer et valider apparaisse dans le formulaire*/
-        document.getElementById('clear').style.visibility = 'visible';
-        document.getElementById('submitButton').style.visibility = 'visible';
+        document.querySelector('#clear').style.visibility = 'visible';
+        document.querySelector('#submitButton').style.visibility = 'visible';
     }
 }
 
