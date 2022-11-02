@@ -5,7 +5,6 @@ Développement d'une page de type "Single page Application" simulant la réserva
 Cette application doit notamment, en s'appuyant sur JavaScript (conçu en Programmation Orientée Objet), afficher une carte avec la liste des stations de location de vélos disponibles dans la ville. 
 
 
-
 Les consignes détaillés du projet : 
 
 Diaporama
@@ -28,6 +27,7 @@ Il doit être possible de réserver un vélo disponible à la station sélection
 
 Vous devez écrire vous même le code du Canvas. Aucun plugin n’est autorisé. 
 Une fois la réservation validée,  un vélo est marqué comme réservé à cette station.
+
 Pour ce projet, la réservation ne sera pas communiquée à un serveur. Seul le navigateur de l'utilisateur "retiendra" que le vélo a été réservé.
 Les données de réservation seront stockées dans le navigateur à l’aide de l’API Web Storage et affichées en dessous du panneau. L'état de la réservation (s’il y en a une) est ainsi affiché, avec un décompte dynamique du temps restant avant expiration de la réservation.
 Une réservation expire automatiquement au bout de 20 minutes et également lorsque le navigateur web se referme.
@@ -35,7 +35,6 @@ Le nom et le prénom sont toutefois conservés par le navigateur pour prérempli
 Il ne peut y avoir qu'une réservation à la fois. Si une nouvelle réservation a lieu, elle remplace la précédente.
 
 Le code doit exploiter une API cartographique et l'API temps réel de API JCDecaux. Il doit également utiliser les API Web Storage et Canvas.
-
 
 
 Compétences évaluées pour valider ce projet d'Openclassrooms
