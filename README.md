@@ -5,7 +5,7 @@ Développement d'une page de type "Single page Application" simulant la réserva
 Cette application doit notamment, en s'appuyant sur JavaScript (conçu en Programmation Orientée Objet), afficher une carte avec la liste des stations de location de vélos disponibles dans la ville. 
 
 
-Les consignes détaillés du projet : 
+Les consignes détaillées du projet : 
 
 Diaporama
 Vous devez afficher en haut de la page un diaporama de photos et de textes expliquant le fonctionnement de l'application. La logique du diaporama doit être écrite par vos soins. L’utilisation de tout plugin automatisant la logique de l’application est proscrite.
