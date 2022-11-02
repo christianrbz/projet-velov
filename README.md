@@ -2,7 +2,9 @@ Concevez une carte interactive de location de vélos
 
 Développement d'une page de type "Single page Application" simulant la réservation de vélos dans une ville. Ces vélos sont répartis dans de nombreuses stations dans la ville. L'utilisateur doit pouvoir réserver un vélo depuis son navigateur (à condition qu'il reste des vélos disponibles à la station !). La réservation est alors temporairement enregistrée sur le navigateur du visiteur.
 
-Cette application doit notamment, en s'appuyant sur JavaScript, afficher une carte avec la liste des stations de location de vélos disponibles dans la ville. 
+Cette application doit notamment, en s'appuyant sur JavaScript (conçu en Programmation Orientée Objet), afficher une carte avec la liste des stations de location de vélos disponibles dans la ville. 
+
+
 
 Les consignes détaillés du projet : 
 
@@ -33,6 +35,8 @@ Le nom et le prénom sont toutefois conservés par le navigateur pour prérempli
 Il ne peut y avoir qu'une réservation à la fois. Si une nouvelle réservation a lieu, elle remplace la précédente.
 
 Le code doit exploiter une API cartographique et l'API temps réel de API JCDecaux. Il doit également utiliser les API Web Storage et Canvas.
+
+
 
 Compétences évaluées pour valider ce projet d'Openclassrooms
 - Créer des objets simples en JavaScript, contenant des méthodes et des propriétés
