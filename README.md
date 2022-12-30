@@ -1,4 +1,6 @@
-Concevez une carte interactive de location de vélos (projet avec Openclassrooms)
+Projet avec Openclassrooms
+
+Concevez une carte interactive de location de vélos
 
 Lien du site : https://christianrbz.github.io/projet-velov/
 
